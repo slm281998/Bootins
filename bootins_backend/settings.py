@@ -65,25 +65,12 @@ WSGI_APPLICATION = "bootins_backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    
-}
+import dj_database_url # type: ignore
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bootins_db',         # Le nom de la base créée dans pgAdmin
-        'USER': 'mon_app_user',        # L'utilisateur créé
-        'PASSWORD': 'SamirLeMze@28',
-        'HOST': 'localhost',           # Ou '127.0.0.1'
-        'PORT': '5432',                # Port par défaut
-    },
-    
-    "sqlite": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+ 'default': dj_database_url.config(default='')
 }
+
 
 
 # Password validation
